@@ -1,6 +1,8 @@
-# Markdown 编程语言
+# Markdown Lang
 
-使用 markdown 开发软件。
+Markdown Lang 是一套软件设计表述规范。并基于这些规范生成前端与后端源码。
+
+本项目既是 Markdown Lang 的设计文档，也是按照 Markdown Lang 的语法格式编写的。
 
 ## 编写文档
 
