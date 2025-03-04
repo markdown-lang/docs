@@ -15,6 +15,8 @@ export default defineConfig({
       { text: '程序模块', link: '/module'},
       { text: '业务场景', link: '/case'},
       { text: '工具', link: '/tool'},
+      { text: '帮助', link: '/help'},
+      { text: '任务', link: '/issue'},
     ],
 
     sidebar: {
@@ -54,7 +56,8 @@ export default defineConfig({
         {
           text: '程序模块',
           items: [
-            { text: '目录', link: '/module/' },
+            { text: '模板项目', link: '/module/template-project' },
+            { text: '创建项目', link: '/module/create-project' },
           ]
         }
       ],
@@ -71,6 +74,22 @@ export default defineConfig({
           text: '工具',
           items: [
             { text: '目录', link: '/tool/' },
+          ]
+        }
+      ],
+      '/help/': [
+        {
+          text: '帮助',
+          items: [
+            { text: '项目模板', link: '/help/template-project' },
+          ]
+        }
+      ],
+      '/issue/': [
+        {
+          text: '任务',
+          items: [
+            { text: '2025年3月', link: '/issue/202503' },
           ]
         }
       ]
