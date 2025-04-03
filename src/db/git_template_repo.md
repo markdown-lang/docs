@@ -25,9 +25,9 @@
 
 ## 约束
 
-1. 主键: `pk_account`
-2. 外键: `fk_account_software_id`，`software_id` 关联 `software.dbid`
-3. 唯一：无
+1. 主键: `pk_git_template_repo`
+2. 外键: `fk_git_template_repo_software_id`，`software_id` 关联 `software.dbid`
+3. 唯一：`uk_git_template_repo_http_url`，关联字段 `http_url`
 
 ## 索引
 
@@ -38,4 +38,5 @@
 1. `repo_category(仓库分类)` 的值详见[git模板仓库分类](../data/dict/2002_git_template_repo_category.md)
 2. `http_url` 是访问 git 仓库的 http 网址
 3. `is_private(是否私有)` 仓库是私有的，还是可公开访问的，如果是私有的，在克隆时就需要提供用户和密码
-4. 克隆仓库时使用的用户和密码，是从 `account(账号信息)` 表中获取登录用户的账号信息
+4. 克隆仓库时使用的用户和密码，是从 `account(账号信息)` 表中获取登录用户的账号信息（最好不要存在服务器端）
+5. `software_id(软件标识)` 是指代码托管在哪个平台上，如 `GitLab`、`GitHub` 或 `Gitee` 等

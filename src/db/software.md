@@ -27,4 +27,13 @@
 
 ## 说明
 
-1. `name(名称)`，如 `mysql`、`gitlab`、`git`、`ubuntu_server` 等具体软件
+1. `name(名称)`，如 `mysql`、`gitlab`、`git`、`ubuntu_server` 等具体软件，名称是在此处规范的
+
+## 数据
+
+| name          | label         | description |
+| ------------- | ------------- | ----------- |
+| mysql         | MySQL         |             |
+| gitlab        | GitLab        |             |
+| git           | Git           |             |
+| ubuntu_server | Ubuntu Server |             |
