@@ -31,7 +31,7 @@
 
 ## 说明
 
-1. `user_id(用户标识)` 表示用于
+1. `user_id(用户标识)` 是被授权人标识
 2. `end_time(授权结束时间)`，值为 `null` 表示永久授权
 3. `access_level(访问级别)` 的值详见[账号访问级别](../data/dict/2001_account_access_level)
 4. `create_by(创建人)` 是授权人标识
