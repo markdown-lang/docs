@@ -18,6 +18,7 @@
 | is_private    | 是否私有 | boolean      | false  |      | 否   |
 | description   | 描述     | varchar(128) |        |      | 是   |
 | software_id   | 软件标识 | bigint       |        |      | 否   |
+| repo_name     | 仓库名称 | varchar(32)  |        |      | 否   |
 | create_by     | 创建人   | bigint       |        |      | 否   |
 | create_time   | 创建时间 | datetime     |        |      | 否   |
 | update_by     | 更新人   | bigint       |        |      | 是   |
@@ -40,3 +41,4 @@
 3. `is_private(是否私有)` 仓库是私有的，还是可公开访问的，如果是私有的，在克隆时就需要提供用户和密码
 4. 克隆仓库时使用的用户和密码，是从 `account(账号信息)` 表中获取登录用户的账号信息（最好不要存在服务器端）
 5. `software_id(软件标识)` 是指代码托管在哪个平台上，如 `GitLab`、`GitHub` 或 `Gitee` 等
+6. `repo_name(仓库名称)` 是基于此模板创建 git 仓库时，推荐的仓库名称

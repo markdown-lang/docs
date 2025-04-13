@@ -27,3 +27,5 @@ npm run docs:dev
 # 构建
 npm run docs:build
 ```
+
+为什么不再开发低代码平台了？因为想通了一个道理，[形式应追随功能，而不是功能受困于形式](https://interjectedfuture.com/visual-programming-is-stuck-on-the-form/)。
