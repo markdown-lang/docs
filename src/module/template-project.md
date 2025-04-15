@@ -17,10 +17,11 @@
    1. `row` - 行索引，从0开始计数，-1表示最后一行
    2. `column` - 列索引，从0开始计数，是 `from_value` 中第一个字的列索引，即包含 `from_value` 的第一个字符
    3. `from_value` - 需被替换的文本
-   4. `to_value` - 使用此变量的值替换，使用 js 的模板字符串来传入变量，目前支持的变量有
+   4. `to_value` - 使用此变量的值替换，使用 `{{变量名}}` 来传入变量，目前支持的变量有
       1. `project_name` - 项目名称，英文字符表示
       2. `project_label` - 项目名称，中文名
       3. `project_description` - 项目描述
+      4. `repo_name` - 仓库名
 
 使用 `to_value` 指定变量的值替换掉 `from_value` 指定的文本。当前仅支持一行替换一次。
 
@@ -34,25 +35,30 @@
         "row": 1,
         "column": 2,
         "from_value": "被替换的文本",
-        "to_value": "`${project_name}`"
+        "to_value": "{{project_name}}"
     }]
 }]
 ```
 
 ### 修改文件夹名称
 
-字段说明
+要放在替换文件内容的后面。
+
+字段说明。
 
 1. `action` - `rename-dir` 表示修改的是最后一层文件夹的名称
-2. `path` - 文件的相对路径，相对于项目的根目录
+2. `path` 
+   1. 文件的相对路径，相对于项目的根目录，不需要以 `/` 开头，多层目录以 `/` 分割
+   2. `.` 表示当前目录，即项目的根目录，修改根目录的操作通常是最后一个操作
 3. `changes` - 数组
    1. `row` - 行索引，值为-1，表示路径的最后一段
    2. `column` - 列索引，从0开始计数，是 `from_value` 中第一个字的列索引，即包含 `from_value` 的第一个字符
    3. `from_value` - 需被替换的文本
-   4. `to_value` - 使用此变量的值替换，使用 js 的模板字符串来传入变量，目前支持的变量有
+   4. `to_value` - 使用此变量的值替换，使用 `{{变量名}}` 传入变量，目前支持的变量有
       1. `project_name` - 项目名称，英文字符表示
       2. `project_label` - 项目名称，中文名
       3. `project_description` - 项目描述
+      4. `repo_name` - 仓库名
 
 示例
 
@@ -64,7 +70,7 @@
         "row": -1,
         "column": 0,
         "from_value": "被替换的文件夹名称，可以替换一部分",
-        "to_value": "`${project_name}`"
+        "to_value": "`{{project_name}}`"
     }]
 }]
 ```
