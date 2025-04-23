@@ -10,6 +10,7 @@
 | project_id  | 项目标识 | bigint       |        |      | 否   |
 | url         | 访问地址 | varchar(128) |        |      | 否   |
 | group_name  | 分组名   | varchar(32)  |        |      | 否   |
+| is_main     | 主平台   | boolean      | false  |      | 否   |
 | create_by   | 创建人   | bigint       |        |      | 否   |
 | create_time | 创建时间 | datetime     |        |      | 否   |
 | update_by   | 更新人   | bigint       |        |      | 是   |
@@ -30,3 +31,4 @@
 1. `url(访问地址)` 的格式为 `{协议}://{域名或ip}:{端口, 默认80}`，如 `https://github.com`
 2. `group_name(分组名)` 可以是用户名或分组名，当多层分组时用 `/` 分割，如 `group1/group2`
 3. 本表设计只支持将同一个项目的 git 仓库放在同一个分组下
+4. `is_main(主平台)`，一个项目只能有一个主托管平台，主托管平台用于日常源码提交；副托管平台可用于日常备份

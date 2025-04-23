@@ -17,11 +17,7 @@
    1. `row` - 行索引，从0开始计数，-1表示最后一行
    2. `column` - 列索引，从0开始计数，是 `from_value` 中第一个字的列索引，即包含 `from_value` 的第一个字符
    3. `from_value` - 需被替换的文本
-   4. `to_value` - 使用此变量的值替换，使用 `{{变量名}}` 来传入变量，目前支持的变量有
-      1. `project_name` - 项目名称，英文字符表示
-      2. `project_label` - 项目名称，中文名
-      3. `project_description` - 项目描述
-      4. `repo_name` - 仓库名
+   4. `to_value` - 使用此变量的值替换，使用 `{{变量名}}` 来传入变量，变量表达式遵循 [handlebars](https://handlebarsjs.com) 规范
 
 使用 `to_value` 指定变量的值替换掉 `from_value` 指定的文本。当前仅支持一行替换一次。
 
@@ -40,7 +36,7 @@
 }]
 ```
 
-### 修改文件夹名称
+### 修改文件夹或文件名称
 
 要放在替换文件内容的后面。
 
@@ -53,12 +49,8 @@
 3. `changes` - 数组
    1. `row` - 行索引，值为-1，表示路径的最后一段
    2. `column` - 列索引，从0开始计数，是 `from_value` 中第一个字的列索引，即包含 `from_value` 的第一个字符
-   3. `from_value` - 需被替换的文本
-   4. `to_value` - 使用此变量的值替换，使用 `{{变量名}}` 传入变量，目前支持的变量有
-      1. `project_name` - 项目名称，英文字符表示
-      2. `project_label` - 项目名称，中文名
-      3. `project_description` - 项目描述
-      4. `repo_name` - 仓库名
+   3. `from_value` - 需被替换的文本，只替换匹配的文本
+   4. `to_value` - 使用此变量的值替换，使用 `{{变量名}}` 传入变量，，变量表达式遵循 [handlebars](https://handlebarsjs.com) 规范
 
 示例
 
@@ -82,6 +74,7 @@
 ```json
 [{
     "action": "exec-sql-file",
+    "url": "{{rd.software_name}}://{{rd.username}}:{{rd.password}}@{{rd.host}}:{{rd.port}}/{{rd.database_name}}",
     "path": "sql/quartz.sql"
 }]
 ```
@@ -94,6 +87,29 @@
     "command": "npm install"
 }]
 ```
+
+## 数据对象
+
+`to_value` 中引入的数据
+
+1. `project_name` - 项目名称，英文字符表示
+2. `project_label` - 项目名称，中文名
+3. `project_description` - 项目描述
+4. `repo_name` - 仓库名
+5. `rd` - 关系数据库，是 relational database 的首字母
+   1. `software_name` - 软件名，如 `mysql` 等
+   2. `host` - 主机
+   3. `port` - 端口
+   4. `username` - 用户
+   5. `password` - 密码
+   6. `database_name` - 数据库名称
+6. `md` - 内存数据库，是 memory database 的首字母，当前仅支持 redis
+   1. `host` - 主机
+   2. `port` - 端口
+   3. `password` - 密码
+   4. `database_name` - 数据库名称或索引
+
+示例
 
 
 每个人的信息存在本地配置文件中，不往git仓库提交
