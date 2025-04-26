@@ -2,6 +2,8 @@
 
 以下设计取执行某项操作这个隐喻。
 
+会分两个阶段执行操作，第一个阶段是在 push 之前，第二个阶段是在 push 之后
+
 ## 模板替换语法
 
 一个项目的模板配置信息存在 `template.json` 文件中，使用 `json` 格式定义配置文件。
@@ -12,8 +14,11 @@
 字段说明
 
 1. `action` - `replace-text` 表示替换文件中的内容
-2. `path` - 文件的相对路径，相对于项目的根目录
-3. `changes` - 数组
+2. `when`
+   1. `before-push` - 修改会提交到远端 git 仓库
+   2. `after-push` - 修改只应用于开发者自己的电脑
+3. `path` - 文件的相对路径，相对于项目的根目录
+4. `changes` - 数组
    1. `row` - 行索引，从0开始计数，-1表示最后一行
    2. `column` - 列索引，从0开始计数，是 `from_value` 中第一个字的列索引，即包含 `from_value` 的第一个字符
    3. `from_value` - 需被替换的文本
@@ -26,6 +31,7 @@
 ```json
 [{
     "action": "replace-text",
+    "when": "before-push",
     "path": "you/file/path",
     "changes": [{
         "row": 1,
@@ -43,10 +49,13 @@
 字段说明。
 
 1. `action` - `rename-dir` 表示修改的是最后一层文件夹的名称
-2. `path` 
+2. `when`
+   1. `before-push` - 修改会提交到远端 git 仓库
+   2. `after-push` - 修改只应用于开发者自己的电脑
+3. `path` 
    1. 文件的相对路径，相对于项目的根目录，不需要以 `/` 开头，多层目录以 `/` 分割
    2. `.` 表示当前目录，即项目的根目录，修改根目录的操作通常是最后一个操作
-3. `changes` - 数组
+4. `changes` - 数组
    1. `row` - 行索引，值为-1，表示路径的最后一段
    2. `column` - 列索引，从0开始计数，是 `from_value` 中第一个字的列索引，即包含 `from_value` 的第一个字符
    3. `from_value` - 需被替换的文本，只替换匹配的文本
@@ -57,6 +66,7 @@
 ```json
 [{
     "action": "rename-dir",
+    "when": "before-push",
     "path": "you/file/path",
     "changes": [{
         "row": -1,
@@ -74,6 +84,7 @@
 ```json
 [{
     "action": "exec-sql-file",
+    "when": "after-push",
     "url": "{{rd.software_name}}://{{rd.username}}:{{rd.password}}@{{rd.host}}:{{rd.port}}/{{rd.database_name}}",
     "path": "sql/quartz.sql"
 }]
@@ -84,6 +95,7 @@
 ```json
 [{
     "action": "exec-node-command",
+    "when": "after-push",
     "command": "npm install"
 }]
 ```
