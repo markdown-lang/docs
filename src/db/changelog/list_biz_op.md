@@ -11,6 +11,7 @@
 | dbid                     | 主键             | bigint      |        | 是   | 否   |
 | project_id               | 项目标识         | bigint      |        |      | 否   |
 | create_program_module_id | 创建程序模块标识 | bigint      |        |      | 否   |
+| code                     | 业务操作编码     | varchar(32) |        |      | 否   |
 | name                     | 业务操作名称     | varchar(64) |        |      | 否   |
 | is_paging                | 是否分页         | boolean     | true   |      | 否   |
 | enable_data_permi        | 开启数据权限     | boolean     | true   |      | 否   |

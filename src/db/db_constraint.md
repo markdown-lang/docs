@@ -27,4 +27,4 @@
 
 ## 说明
 
-1. `type(约束类型)` 的值详见 [数据库约束类型](../data/dict/1005_db_constraint_type.md)
+1. `type(约束类型)` 的值详见 [数据库约束类型](../data/dict/2012_db_constraint_type.md)

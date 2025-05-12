@@ -29,4 +29,4 @@
 
 ## 说明
 
-1. `type(类型)` 的值详见 [数据库表类型](../data/dict/1006_db_table_type.md)
+1. `type(类型)` 的值详见 [数据库表类型](../data/dict/2010_db_table_type.md)
