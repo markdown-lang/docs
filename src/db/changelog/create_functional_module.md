@@ -1,4 +1,4 @@
-# `create_function_module` - 创建一个功能模块
+# `create_functional_module` - 创建一个功能模块
 
 定义一个程序模块的基本信息。
 
@@ -25,11 +25,11 @@
 
 ## 约束
 
-1. 主键: `pk_create_function_module`
+1. 主键: `pk_create_functional_module`
 2. 外键: 
-   1. `fk_create_function_module_project_id`，`project_id` 关联 `project.dbid`
-   2. `fk_create_function_module_change_set_id`，`change_set_id` 关联 `change_set.dbid`
-3. 唯一：`uk_create_function_module_change_set_id_user_group_id`，关联字段 `change_set_id` 和 `user_group_id`
+   1. `fk_create_functional_module_project_id`，`project_id` 关联 `project.dbid`
+   2. `fk_create_functional_module_change_set_id`，`change_set_id` 关联 `change_set.dbid`
+3. 唯一：`uk_create_functional_module_change_set_id_user_group_id`，关联字段 `change_set_id` 和 `user_group_id`
 
 ## 索引
 

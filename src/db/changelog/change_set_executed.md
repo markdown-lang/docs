@@ -1,18 +1,18 @@
-# `change_set_executed` - 变更列表执行记录
+# `change_set_executed` - 变更集执行记录
 
 变更列表的执行情况，一个变更对应一个执行记录。代码生成完成后，在此表中记录。
 
 ## 字段
 
-| 字段名        | 注释     | 类型     | 默认值 | 主键 | 可空 |
-| ------------- | -------- | -------- | ------ | ---- | ---- |
-| dbid          | 主键     | bigint   |        | 是   | 否   |
-| change_set_id | 变更标识 | bigint   |        |      | 否   |
-| seq           | 序号     | int      |        |      | 否   |
-| create_by     | 创建人   | bigint   |        |      | 否   |
-| create_time   | 创建时间 | datetime |        |      | 否   |
-| update_by     | 更新人   | bigint   |        |      | 是   |
-| update_time   | 更新时间 | datetime |        |      | 是   |
+| 字段名        | 注释       | 类型     | 默认值 | 主键 | 可空 |
+| ------------- | ---------- | -------- | ------ | ---- | ---- |
+| dbid          | 主键       | bigint   |        | 是   | 否   |
+| change_set_id | 变更集标识 | bigint   |        |      | 否   |
+| seq           | 序号       | int      |        |      | 否   |
+| create_by     | 创建人     | bigint   |        |      | 否   |
+| create_time   | 创建时间   | datetime |        |      | 否   |
+| update_by     | 更新人     | bigint   |        |      | 是   |
+| update_time   | 更新时间   | datetime |        |      | 是   |
 
 ## 约束
 

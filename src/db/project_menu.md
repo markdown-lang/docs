@@ -10,9 +10,7 @@
 | project_id    | 项目标识           | bigint(20)   |        |      | 否   |
 | group_id      | 菜单分组标识       | bigint(20)   |        |      | 否   |
 | name          | 名称               | varchar(64)  |        |      | 否   |
-| code_template | 代码模板           | char(2)      |        |      | 否   |
 | client_type   | 客户端类型         | char(2)      |        |      | 否   |
-| ui_template   | 界面模板           | char(2)      |        |      | 是   |
 | path          | 路由地址           | varchar(256) |        |      | 是   |
 | icon          | 图标               | varchar(64)  |        |      | 是   |
 | component     | 组件路径           | varchar(256) |        |      | 是   |
@@ -43,11 +41,9 @@
 1. `component(组件路径)` 用于指定组件路径，如 `home/index`，对应的组件为 `/src/views/home/index.vue`
 2. `component(组件路径)` 不能以 `/` 开头
 3. `seq(序号)` 用于排序，每个分组从 `1` 开始计数
-4. `code_template(代码模板)` 对应字典 [代码生成模板](../data/dict/1017_module_code_template.md)
-5. `ui_template(界面模板)` 对应字典 [界面模板](../data/dict/1018_ui_template.md)
-6. `user_menu_id(用户定义的菜单标识)` 默认跟 `dbid` 相同，允许用户指定，系统菜单标识使用此字段值
-7. `client_type(客户端类型)` 对应字典 [客户端类型](../data/dict/1019_client_type.md), 必须跟功能模块保持一致
-8. 当 `client_type(客户端类型)` 的值为 `05(API)` 时，以下字段允许为空，界面上不用显示
+4. `user_menu_id(用户定义的菜单标识)` 默认跟 `dbid` 相同，允许用户指定，系统菜单标识使用此字段值
+5. `client_type(客户端类型)` 对应字典 [客户端类型](../data/dict/2009_client_type.md), 必须跟功能模块保持一致
+6. 当 `client_type(客户端类型)` 的值为 `05(API)` 时，以下字段允许为空，界面上不用显示
    1. `ui_template(界面模板)`
    2. `path(路由地址)`
    3. `component(组件路径)`
