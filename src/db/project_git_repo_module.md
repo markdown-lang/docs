@@ -33,7 +33,7 @@
 
 1. `content_type(内容分类)` 的值详见 [子模块内容分类](../data/dict/2007_module_content_type)
 2. `module_name(模块名称)` 是子模块（或子项目）的名称，即目录名
-3. 如果 `repo_type(仓库类型)` 是`单模块`，则也要在此表中登记
+3. 如果 `repo_type(仓库类型)` 是`单模块`，则也要在此表中登记，此时模块名称为 `null`
 4. 约定一个项目只能有一种主要编程语言
 5. `base_package(包的根路径)` 是一个相对路径，相对于 `module_name(模块名称)`
 6. `main_language(主要编程语言)` 的值详见 [编程语言](../data/dict/2008_program_language)
