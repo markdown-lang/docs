@@ -15,7 +15,7 @@
 | path            | 路由路径           | varchar(256) |        |      | 是   |
 | icon            | 图标               | varchar(64)  |        |      | 是   |
 | client_type     | 客户端类型         | char(2)      |        |      | 否   |
-| permission_part | 权限标识           | varchar(64)  |        |      | 是   |
+| permi_part      | 权限标识           | varchar(64)  |        |      | 是   |
 | client_src_path | 前端源码路径       | varchar(256) |        |      | 否   |
 | server_src_path | 后端源码路径       | varchar(256) |        |      | 否   |
 | create_by       | 创建人             | bigint       |        |      | 否   |
@@ -47,5 +47,5 @@
    1. `local` - 自定义的 icon 图标
    2. `bootstrap` - [Bootstrap Icons](https://icons.getbootstrap.com/)
    3. `ionicons5` - [ionicons5](https://xicons.org)
-8. `permission_part(权限标识)` 是功能模块一层的权限字符串
+8. `permi_part(权限标识)` 是功能模块一层的权限字符串
 9. 一个完整的 `permission(权限标识)` 至少由三层组成 `{功能模块权限标识}:{程序模块权限标识}:{操作权限标识}`，但不限于三层

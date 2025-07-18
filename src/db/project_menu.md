@@ -4,22 +4,23 @@
 
 ## 字段
 
-| 字段名        | 注释               | 类型         | 默认值 | 主键 | 可空 |
-| ------------- | ------------------ | ------------ | ------ | ---- | ---- |
-| dbid          | 主键               | bigint(20)   |        | 是   | 否   |
-| project_id    | 项目标识           | bigint(20)   |        |      | 否   |
-| group_id      | 菜单分组标识       | bigint(20)   |        |      | 否   |
-| name          | 名称               | varchar(64)  |        |      | 否   |
-| client_type   | 客户端类型         | char(2)      |        |      | 否   |
-| path          | 路由地址           | varchar(256) |        |      | 是   |
-| icon          | 图标               | varchar(64)  |        |      | 是   |
-| component     | 组件路径           | varchar(256) |        |      | 是   |
-| user_menu_id  | 用户定义的菜单标识 | int          |        |      | 是   |
-| seq           | 序号               | int          |        |      | 否   |
-| create_by     | 创建人             | bigint(20)   |        |      | 否   |
-| create_time   | 创建时间           | datetime     |        |      | 否   |
-| update_by     | 更新人             | bigint(20)   |        |      | 是   |
-| update_time   | 更新时间           | datetime     |        |      | 是   |
+| 字段名       | 注释               | 类型         | 默认值 | 主键 | 可空 |
+| ------------ | ------------------ | ------------ | ------ | ---- | ---- |
+| dbid         | 主键               | bigint(20)   |        | 是   | 否   |
+| project_id   | 项目标识           | bigint(20)   |        |      | 否   |
+| group_id     | 菜单分组标识       | bigint(20)   |        |      | 否   |
+| name         | 名称               | varchar(64)  |        |      | 否   |
+| client_type  | 客户端类型         | char(2)      |        |      | 否   |
+| path         | 路由地址           | varchar(256) |        |      | 是   |
+| icon         | 图标               | varchar(64)  |        |      | 是   |
+| component    | 组件路径           | varchar(256) |        |      | 是   |
+| user_menu_id | 用户定义的菜单标识 | int          |        |      | 是   |
+| seq          | 序号               | int          |        |      | 否   |
+| template_key | 界面模板码         | varchar(32)  |        |      | 否   |
+| create_by    | 创建人             | bigint(20)   |        |      | 否   |
+| create_time  | 创建时间           | datetime     |        |      | 否   |
+| update_by    | 更新人             | bigint(20)   |        |      | 是   |
+| update_time  | 更新时间           | datetime     |        |      | 是   |
 
 ## 约束
 
