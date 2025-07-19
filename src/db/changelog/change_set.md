@@ -4,24 +4,24 @@
 
 ## 字段
 
-| 字段名           | 注释         | 类型         | 默认值 | 主键 | 可空 |
+| 字段名           | 注释         | 类型         | 默认值 | 可空 | 单位 |
 | ---------------- | ------------ | ------------ | ------ | ---- | ---- |
-| dbid             | 主键         | bigint       |        | 是   | 否   |
-| project_id       | 项目标识     | bigint       |        |      | 否   |
-| change_type_code | 变更类型编码 | varchar(32)  |        |      | 否   |
-| change_type_name | 变更类型名称 | varchar(32)  |        |      | 否   |
-| title            | 标题         | varchar(64)  |        |      | 否   |
-| description      | 描述         | varchar(256) |        |      | 是   |
-| create_by        | 创建人       | bigint       |        |      | 否   |
-| create_time      | 创建时间     | datetime     |        |      | 否   |
-| update_by        | 更新人       | bigint       |        |      | 是   |
-| update_time      | 更新时间     | datetime     |        |      | 是   |
+| dbid             | 主键         | bigint       |        | 否   |      |
+| project_id       | 项目标识     | bigint       |        | 否   |      |
+| change_type_code | 变更类型编码 | varchar(32)  |        | 否   |      |
+| change_type_name | 变更类型名称 | varchar(64)  |        | 否   |      |
+| title            | 标题         | varchar(64)  |        | 否   |      |
+| description      | 描述         | varchar(256) |        | 是   |      |
+| create_by        | 创建人       | bigint       |        | 否   |      |
+| create_time      | 创建时间     | datetime     |        | 否   |      |
+| update_by        | 更新人       | bigint       |        | 是   |      |
+| update_time      | 更新时间     | datetime     |        | 是   |      |
 
 ## 约束
 
-1. 主键: `pk_change_set`
-2. 外键: `fk_change_set_project_id`，`project_id` 关联 `project.dbid`
-3. 唯一：无
+* 主键: `pk_change_set`
+* 外键: `fk_change_set_project_id`，`project_id` 关联 `project.dbid`
+* 唯一：无
 
 ## 索引
 

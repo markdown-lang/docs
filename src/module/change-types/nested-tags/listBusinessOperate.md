@@ -18,5 +18,5 @@ api名称，数据查询的主表
 
 1. `code` 的值为 `list-{业务的英文名}`，业务的英文名通常是主表的表名，全局唯一
 2. `dataPermission` 的值为 `true`，则支持按部门过滤与按用户过滤数据
-3. `operatePermission` 的值为 `true`，则会生成权限标识
+3. `operatePermission` 的值为 `true`，则会生成操作权限字符
 4. 查询操作不需要记录日志

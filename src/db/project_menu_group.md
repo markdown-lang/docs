@@ -4,22 +4,23 @@
 
 ## 字段
 
-| 字段名          | 注释               | 类型         | 默认值 | 主键 | 可空 |
-| --------------- | ------------------ | ------------ | ------ | ---- | ---- |
-| dbid            | 主键               | bigint(20)   |        | 是   | 否   |
-| project_id      | 项目标识           | bigint(20)   |        |      | 否   |
-| name            | 名称               | varchar(64)  |        |      | 否   |
-| path            | 路由地址           | varchar(256) |        |      | 否   |
-| icon            | 图标               | varchar(64)  |        |      | 是   |
-| user_group_id   | 用户定义的分组标识 | int          |        |      | 否   |
-| client_type     | 客户端类型         | char(2)      |        |      | 否   |
-| seq             | 序号               | int          |        |      | 否   |
-| client_src_path | 前端源码路径       | varchar(256) |        |      | 否   |
-| server_src_path | 后端源码路径       | varchar(256) |        |      | 否   |
-| create_by       | 创建人             | bigint(20)   |        |      | 否   |
-| create_time     | 创建时间           | datetime     |        |      | 否   |
-| update_by       | 更新人             | bigint(20)   |        |      | 是   |
-| update_time     | 更新时间           | datetime     |        |      | 是   |
+| 字段名            | 注释               | 类型         | 默认值 | 主键 | 可空 |
+| ----------------- | ------------------ | ------------ | ------ | ---- | ---- |
+| dbid              | 主键               | bigint(20)   |        | 是   | 否   |
+| project_id        | 项目标识           | bigint(20)   |        |      | 否   |
+| name              | 名称               | varchar(64)  |        |      | 否   |
+| user_group_id     | 用户定义的分组标识 | int          |        |      | 否   |
+| path              | 路由地址           | varchar(256) |        |      | 否   |
+| icon              | 图标               | varchar(64)  |        |      | 是   |
+| client_type       | 客户端类型         | char(2)      |        |      | 否   |
+| seq               | 序号               | int          |        |      | 否   |
+| client_src_path   | 前端源码路径       | varchar(256) |        |      | 否   |
+| server_src_path   | 后端源码路径       | varchar(256) |        |      | 否   |
+| action_permission | 操作权限字符       | varchar(64)  |        |      | 是   |
+| create_by         | 创建人             | bigint(20)   |        |      | 否   |
+| create_time       | 创建时间           | datetime     |        |      | 否   |
+| update_by         | 更新人             | bigint(20)   |        |      | 是   |
+| update_time       | 更新时间           | datetime     |        |      | 是   |
 
 ## 约束
 
@@ -41,3 +42,4 @@
 3. `user_group_id(用户定义的分组标识)` 默认跟 `dbid` 相同，允许用户指定，系统菜单标识使用此字段值
 4. `client_src_path(前端源码路径)` 是存放前端页面组件的文件夹名称，默认跟 `path(路由地址)` 相同
 5. `server_src_path(后端源码路径)` 是存放后端源码文件的文件夹名称，默认跟 `client_src_path(前端源码路径)` 相同
+6. `action_permission(操作权限字符)` 是功能模块一层的权限字符串，默认跟 `path(路由地址)` 相同

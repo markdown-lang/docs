@@ -4,32 +4,32 @@
 
 ## 字段
 
-| 字段名          | 注释               | 类型         | 默认值 | 主键 | 可空 |
-| --------------- | ------------------ | ------------ | ------ | ---- | ---- |
-| dbid            | 主键               | bigint       |        | 是   | 否   |
-| project_id      | 项目标识           | bigint       |        |      | 否   |
-| change_set_id   | 变更标识           | bigint       |        |      | 否   |
-| name            | 模块名称           | varchar(64)  |        |      | 否   |
-| user_group_id   | 用户定义的分组标识 | bigint       |        |      | 否   |
-| seq             | 序号               | int          |        |      | 否   |
-| path            | 路由路径           | varchar(256) |        |      | 是   |
-| icon            | 图标               | varchar(64)  |        |      | 是   |
-| client_type     | 客户端类型         | char(2)      |        |      | 否   |
-| permi_part      | 权限标识           | varchar(64)  |        |      | 是   |
-| client_src_path | 前端源码路径       | varchar(256) |        |      | 否   |
-| server_src_path | 后端源码路径       | varchar(256) |        |      | 否   |
-| create_by       | 创建人             | bigint       |        |      | 否   |
-| create_time     | 创建时间           | datetime     |        |      | 否   |
-| update_by       | 更新人             | bigint       |        |      | 是   |
-| update_time     | 更新时间           | datetime     |        |      | 是   |
+| 字段名            | 注释               | 类型         | 默认值 | 可空 | 单位 |
+| ----------------- | ------------------ | ------------ | ------ | ---- | ---- |
+| dbid              | 主键               | bigint       |        | 否   |      |
+| project_id        | 项目标识           | bigint       |        | 否   |      |
+| change_set_id     | 变更标识           | bigint       |        | 否   |      |
+| name              | 模块名称           | varchar(64)  |        | 否   |      |
+| user_group_id     | 用户定义的分组标识 | bigint       |        | 否   |      |
+| path              | 路由路径           | varchar(256) |        | 是   |      |
+| icon              | 图标               | varchar(64)  |        | 是   |      |
+| client_type       | 客户端类型         | char(2)      |        | 否   |      |
+| seq               | 序号               | int          |        | 否   |      |
+| client_src_path   | 前端源码路径       | varchar(256) |        | 否   |      |
+| server_src_path   | 后端源码路径       | varchar(256) |        | 否   |      |
+| action_permission | 操作权限字符       | varchar(64)  |        | 是   |      |
+| create_by         | 创建人             | bigint       |        | 否   |      |
+| create_time       | 创建时间           | datetime     |        | 否   |      |
+| update_by         | 更新人             | bigint       |        | 是   |      |
+| update_time       | 更新时间           | datetime     |        | 是   |      |
 
 ## 约束
 
-1. 主键: `pk_create_functional_module`
-2. 外键: 
+* 主键: `pk_create_functional_module`
+* 外键: 
    1. `fk_create_functional_module_project_id`，`project_id` 关联 `project.dbid`
    2. `fk_create_functional_module_change_set_id`，`change_set_id` 关联 `change_set.dbid`
-3. 唯一：`uk_create_functional_module_change_set_id_user_group_id`，关联字段 `change_set_id` 和 `user_group_id`
+* 唯一：`uk_create_functional_module_change_set_id_user_group_id`，关联字段 `change_set_id` 和 `user_group_id`
 
 ## 索引
 
@@ -47,5 +47,5 @@
    1. `local` - 自定义的 icon 图标
    2. `bootstrap` - [Bootstrap Icons](https://icons.getbootstrap.com/)
    3. `ionicons5` - [ionicons5](https://xicons.org)
-8. `permi_part(权限标识)` 是功能模块一层的权限字符串
-9. 一个完整的 `permission(权限标识)` 至少由三层组成 `{功能模块权限标识}:{程序模块权限标识}:{操作权限标识}`，但不限于三层
+8. `action_permission(操作权限字符)` 是功能模块一层的权限字符串，默认跟 `path(路由地址)` 相同
+9. 一个完整的 `permission(权限字符)` 至少由三层组成 `{功能模块权限字符}:{程序模块权限字符}:{操作权限字符}`，但不限于三层

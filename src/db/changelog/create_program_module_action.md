@@ -17,7 +17,7 @@
 | data_permi_dept_alias    | 数据权限的部门表别名 | varchar(32) |        |      | 是   |
 | data_permi_user_alias    | 数据权限的用户表别名 | varchar(32) |        |      | 是   |
 | data_permi_permission    | 数据权限的权限字符   | varchar(32) |        |      | 是   |
-| action_permi_part        | 操作权限标识         | varchar(64) |        |      | 是   |
+| action_permission        | 操作权限字符         | varchar(64) |        |      | 是   |
 | create_by                | 创建人               | bigint      |        |      | 否   |
 | create_time              | 创建时间             | datetime    |        |      | 否   |
 | update_by                | 更新人               | bigint      |        |      | 是   |
@@ -50,4 +50,4 @@
    3. `data_permi_user_alias(数据权限的用户表别名)`
    4. `data_permi_permission(数据权限的权限字符)`
    5. 其他操作时，值为 `null`
-4. `action_permi_part(操作权限标识)` 的值不为空，就意味着开启权限标识，否则没有开启
+4. `action_permission(操作权限字符)` 的值不为空，就意味着开启权限字符，否则没有开启
