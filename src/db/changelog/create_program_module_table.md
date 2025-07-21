@@ -4,18 +4,18 @@
 
 ## 字段
 
-| 字段名                   | 注释                   | 类型         | 默认值 | 主键 | 可空 |
-| ------------------------ | ---------------------- | ------------ | ------ | ---- | ---- |
-| dbid                     | 主键                   | bigint       |        | 是   | 否   |
-| project_id               | 项目标识               | bigint       |        |      | 否   |
-| create_program_module_id | 创建程序模块标识       | bigint       |        |      | 否   |
-| table_path               | 数据库表设计文档的路径 | varchar(128) |        |      | 否   |
-| is_main                  | 是否主表               | boolean      | false  |      | 否   |
-| seq                      | 序号                   | int          |        |      | 否   |
-| create_by                | 创建人                 | bigint       |        |      | 否   |
-| create_time              | 创建时间               | datetime     |        |      | 否   |
-| update_by                | 更新人                 | bigint       |        |      | 是   |
-| update_time              | 更新时间               | datetime     |        |      | 是   |
+| 字段名                   | 注释                     | 类型         | 默认值 | 可空 | 单位 |
+| ------------------------ | ------------------------ | ------------ | ------ | ---- | ---- |
+| dbid                     | 主键                     | bigint       |        | 否   |      |
+| project_id               | 项目标识                 | bigint       |        | 否   |      |
+| create_program_module_id | 创建程序模块标识         | bigint       |        | 否   |      |
+| table_path               | 数据库表设计文档相对路径 | varchar(128) |        | 否   |      |
+| is_main                  | 是否主表                 | boolean      | false  | 否   |      |
+| seq                      | 序号                     | int          |        | 否   |      |
+| create_by                | 创建人                   | bigint       |        | 否   |      |
+| create_time              | 创建时间                 | datetime     |        | 否   |      |
+| update_by                | 更新人                   | bigint       |        | 是   |      |
+| update_time              | 更新时间                 | datetime     |        | 是   |      |
 
 ## 约束
 
@@ -34,4 +34,4 @@
 
 1. 一个程序模块通常使用1个主表，0到多个子表存储数据
 2. `seq(序号)` 是每个菜单从1开始计数，主表排在前面，子表排在后面
-3. `table_path(表结构设计文档的路径)` 是相对路径，相对开发人员本地的文件夹 + `/db`
+3. `table_path(数据库表设计文档相对路径)` 是相对路径，相对开发人员本地的文件夹 + `/db`

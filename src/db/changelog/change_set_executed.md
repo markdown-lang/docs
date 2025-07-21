@@ -4,15 +4,15 @@
 
 ## 字段
 
-| 字段名        | 注释       | 类型     | 默认值 | 主键 | 可空 |
+| 字段名        | 注释       | 类型     | 默认值 | 可空 | 单位 |
 | ------------- | ---------- | -------- | ------ | ---- | ---- |
-| dbid          | 主键       | bigint   |        | 是   | 否   |
-| change_set_id | 变更集标识 | bigint   |        |      | 否   |
-| seq           | 序号       | int      |        |      | 否   |
-| create_by     | 创建人     | bigint   |        |      | 否   |
-| create_time   | 创建时间   | datetime |        |      | 否   |
-| update_by     | 更新人     | bigint   |        |      | 是   |
-| update_time   | 更新时间   | datetime |        |      | 是   |
+| dbid          | 主键       | bigint   |        | 否   |      |
+| change_set_id | 变更集标识 | bigint   |        | 否   |      |
+| seq           | 序号       | int      |        | 否   |      |
+| create_by     | 创建人     | bigint   |        | 否   |      |
+| create_time   | 创建时间   | datetime |        | 否   |      |
+| update_by     | 更新人     | bigint   |        | 是   |      |
+| update_time   | 更新时间   | datetime |        | 是   |      |
 
 ## 约束
 

@@ -4,24 +4,24 @@
 
 ## 字段
 
-| 字段名                   | 注释                 | 类型        | 默认值 | 主键 | 可空 |
-| ------------------------ | -------------------- | ----------- | ------ | ---- | ---- |
-| dbid                     | 主键                 | bigint      |        | 是   | 否   |
-| project_id               | 项目标识             | bigint      |        |      | 否   |
-| create_program_module_id | 创建程序模块标识     | bigint      |        |      | 否   |
-| object_code              | 业务对象编码         | varchar(32) |        |      | 否   |
-| object_name              | 业务对象名称         | varchar(32) |        |      | 否   |
-| action_code              | 业务操作编码         | varchar(32) |        |      | 否   |
-| action_name              | 业务操作名称         | varchar(64) |        |      | 否   |
-| is_paging                | 是否分页             | boolean     |        |      | 是   |
-| data_permi_dept_alias    | 数据权限的部门表别名 | varchar(32) |        |      | 是   |
-| data_permi_user_alias    | 数据权限的用户表别名 | varchar(32) |        |      | 是   |
-| data_permi_permission    | 数据权限的权限字符   | varchar(32) |        |      | 是   |
-| action_permission        | 操作权限字符         | varchar(64) |        |      | 是   |
-| create_by                | 创建人               | bigint      |        |      | 否   |
-| create_time              | 创建时间             | datetime    |        |      | 否   |
-| update_by                | 更新人               | bigint      |        |      | 是   |
-| update_time              | 更新时间             | datetime    |        |      | 是   |
+| 字段名                     | 注释                 | 类型        | 默认值 | 可空 | 单位 |
+| -------------------------- | -------------------- | ----------- | ------ | ---- | ---- |
+| dbid                       | 主键                 | bigint      |        | 否   |      |
+| project_id                 | 项目标识             | bigint      |        | 否   |      |
+| create_program_module_id   | 创建程序模块标识     | bigint      |        | 否   |      |
+| object_code                | 业务对象编码         | varchar(32) |        | 否   |      |
+| object_name                | 业务对象名称         | varchar(32) |        | 否   |      |
+| action_code                | 业务操作编码         | varchar(32) |        | 否   |      |
+| action_name                | 业务操作名称         | varchar(32) |        | 否   |      |
+| is_paging                  | 是否分页             | boolean     |        | 是   |      |
+| data_permission_dept_alias | 数据权限的部门表别名 | varchar(32) |        | 是   |      |
+| data_permission_user_alias | 数据权限的用户表别名 | varchar(32) |        | 是   |      |
+| data_permission            | 数据权限的权限字符   | varchar(64) |        | 是   |      |
+| action_permission          | 操作权限字符         | varchar(64) |        | 是   |      |
+| create_by                  | 创建人               | bigint      |        | 否   |      |
+| create_time                | 创建时间             | datetime    |        | 否   |      |
+| update_by                  | 更新人               | bigint      |        | 是   |      |
+| update_time                | 更新时间             | datetime    |        | 是   |      |
 
 ## 约束
 
@@ -46,8 +46,8 @@
    5. `deleteOne` - 删除，删除单条
 3. 查询列表专用的属性：
    1. `is_paging(是否分页)`
-   2. `data_permi_dept_alias(数据权限的部门表别名)`
-   3. `data_permi_user_alias(数据权限的用户表别名)`
-   4. `data_permi_permission(数据权限的权限字符)`
+   2. `data_permission_dept_alias(数据权限的部门表别名)`
+   3. `data_permission_user_alias(数据权限的用户表别名)`
+   4. `data_permission_permission(数据权限的权限字符)`，角色的权限字符，多个时用英文逗号分割，详见 [若依的注解参数说明](https://doc.ruoyi.vip/ruoyi/document/htsc.html)
    5. 其他操作时，值为 `null`
 4. `action_permission(操作权限字符)` 的值不为空，就意味着开启权限字符，否则没有开启

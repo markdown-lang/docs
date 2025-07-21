@@ -4,26 +4,26 @@
 
 ## 字段
 
-| 字段名            | 注释               | 类型         | 默认值 | 主键 | 可空 |
+| 字段名            | 注释               | 类型         | 默认值 | 可空 | 单位 |
 | ----------------- | ------------------ | ------------ | ------ | ---- | ---- |
-| dbid              | 主键               | bigint       |        | 是   | 否   |
-| project_id        | 项目标识           | bigint       |        |      | 否   |
-| change_set_id     | 变更标识           | bigint       |        |      | 否   |
-| name              | 模块名称           | varchar(64)  |        |      | 否   |
-| user_group_id     | 用户定义的分组标识 | bigint       |        |      | 否   |
-| user_menu_id      | 用户定义的菜单标识 | bigint       |        |      | 否   |
-| seq               | 序号               | int          |        |      | 否   |
-| path              | 路由路径           | varchar(256) |        |      | 是   |
-| icon              | 图标               | varchar(64)  |        |      | 是   |
-| action_permission | 操作权限字符       | varchar(64)  |        |      | 是   |
-| visible           | 是否可见           | boolean      | true   |      | 否   |
-| client_type       | 客户端类型         | char(2)      |        |      | 否   |
-| template_key      | 界面模板码         | varchar(32)  |        |      | 是   |
-| panels            | 面板列表           | json         |        |      | 是   |
-| create_by         | 创建人             | bigint       |        |      | 否   |
-| create_time       | 创建时间           | datetime     |        |      | 否   |
-| update_by         | 更新人             | bigint       |        |      | 是   |
-| update_time       | 更新时间           | datetime     |        |      | 是   |
+| dbid              | 主键               | bigint       |        | 否   |      |
+| project_id        | 项目标识           | bigint       |        | 否   |      |
+| change_set_id     | 变更标识           | bigint       |        | 否   |      |
+| name              | 模块名称           | varchar(64)  |        | 否   |      |
+| menu_group_id     | 菜单分组标识       | bigint       |        | 否   |      |
+| user_menu_id      | 用户定义的菜单标识 | bigint       |        | 否   |      |
+| seq               | 序号               | int          |        | 否   |      |
+| path              | 路由路径           | varchar(256) |        | 是   |      |
+| icon              | 图标               | varchar(64)  |        | 是   |      |
+| action_permission | 操作权限字符       | varchar(64)  |        | 是   |      |
+| visible           | 是否可见           | boolean      | true   | 否   |      |
+| client_type       | 客户端类型         | char(2)      |        | 否   |      |
+| template_key      | 界面模板码         | varchar(32)  |        | 是   |      |
+| panels            | 面板列表           | json         |        | 是   |      |
+| create_by         | 创建人             | bigint       |        | 否   |      |
+| create_time       | 创建时间           | datetime     |        | 否   |      |
+| update_by         | 更新人             | bigint       |        | 是   |      |
+| update_time       | 更新时间           | datetime     |        | 是   |      |
 
 ## 约束
 
@@ -31,9 +31,10 @@
 2. 外键: 
    1. `fk_create_program_module_project_id`，`project_id` 关联 `project.dbid`
    2. `fk_create_program_module_change_set_id`，`change_set_id` 关联 `change_set.dbid`
+   3. `fk_create_program_module_menu_group_id`, `menu_group_id` 关联 `project_menu_group.dbid`
 3. 唯一：
-   1. `uk_create_program_module_change_set_id_user_group_id_name`，关联字段 `change_set_id`、`user_group_id` 和 `name`
-   2. `uk_create_program_module_change_set_id_menu_id`，关联字段 `change_set_id` 和 `menu_id`
+   1. `uk_create_program_module_change_set_id_menu_group_id_name`，关联字段 `change_set_id`、`menu_group_id` 和 `name`
+   2. `uk_create_program_module_change_set_id_user_menu_id`，关联字段 `change_set_id` 和 `user_menu_id`
 
 ## 索引
 
