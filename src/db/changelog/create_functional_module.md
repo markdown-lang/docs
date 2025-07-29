@@ -1,6 +1,6 @@
 # `create_functional_module` - 创建一个功能模块
 
-定义一个程序模块的基本信息。
+创建一个功能模块的基本信息。创建一个功能模块，就是一个变更。
 
 ## 字段
 
@@ -11,7 +11,7 @@
 | change_set_id     | 变更标识           | bigint       |        | 否   |      |
 | name              | 模块名称           | varchar(64)  |        | 否   |      |
 | user_group_id     | 用户定义的分组标识 | bigint       |        | 否   |      |
-| path              | 路由路径           | varchar(256) |        | 是   |      |
+| path              | 路由地址           | varchar(256) |        | 是   |      |
 | icon              | 图标               | varchar(64)  |        | 是   |      |
 | client_type       | 客户端类型         | char(2)      |        | 否   |      |
 | seq               | 序号               | int          |        | 否   |      |
@@ -29,7 +29,7 @@
 * 外键: 
    1. `fk_create_functional_module_project_id`，`project_id` 关联 `project.dbid`
    2. `fk_create_functional_module_change_set_id`，`change_set_id` 关联 `change_set.dbid`
-* 唯一：`uk_create_functional_module_change_set_id_user_group_id`，关联字段 `change_set_id` 和 `user_group_id`
+* 唯一：`uk_create_functional_module_change_set_id`，关联字段 `change_set_id`
 
 ## 索引
 

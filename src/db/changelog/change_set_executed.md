@@ -8,6 +8,7 @@
 | ------------- | ---------- | -------- | ------ | ---- | ---- |
 | dbid          | 主键       | bigint   |        | 否   |      |
 | change_set_id | 变更集标识 | bigint   |        | 否   |      |
+| biz_id        | 业务标识   | bigint   |        | 是   |      |
 | seq           | 序号       | int      |        | 否   |      |
 | create_by     | 创建人     | bigint   |        | 否   |      |
 | create_time   | 创建时间   | datetime |        | 否   |      |
@@ -27,3 +28,6 @@
 ## 说明
 
 1. `seq(序号)`，每个项目从 `1` 开始，按照执行顺序编号
+2. `biz_id(业务标识)` 关联变更与应用变更，`change_type_code(变更类型编码)` 对业务变关系：
+   1. create_functional_module 对应 `project_menu_group(项目菜单分组)` 表中的 `dbid`
+   2. create_program_module 对应 `project_menu(项目菜单信息)` 表中的 `dbid`

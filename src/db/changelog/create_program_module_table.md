@@ -23,7 +23,6 @@
 2. 外键: 
    1. `fk_create_program_module_table_project_id`，`project_id` 关联 `project.dbid`
    2. `fk_create_program_module_table_cpm_id`，`create_program_module_id` 关联 `create_program_module.dbid`
-   3. `fk_create_program_module_table_table_id`，`table_id` 关联 `db_table.dbid`
 3. 唯一：`uk_create_program_module_table_cpm_id_table_path`，关联字段 `create_program_module_id` 和 `table_path`
 
 ## 索引

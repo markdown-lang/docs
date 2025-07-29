@@ -12,6 +12,7 @@
 | change_type_name | 变更类型名称 | varchar(64)  |        | 否   |      |
 | title            | 标题         | varchar(64)  |        | 否   |      |
 | description      | 描述         | varchar(256) |        | 是   |      |
+| biz_id           | 业务标识     | bigint       |        | 是   |      |
 | create_by        | 创建人       | bigint       |        | 否   |      |
 | create_time      | 创建时间     | datetime     |        | 否   |      |
 | update_by        | 更新人       | bigint       |        | 是   |      |
@@ -32,3 +33,6 @@
 1. `change_type_code(变更类型编码)` 的值与对应变更的数据库表名保持一致：
    1. create_functional_module - 创建功能模块
    2. create_program_module - 创建程序模块
+2. `biz_id(业务标识)` 关联具体的变更信息，在具体变更信息创建完成后，补充该字段，`change_type_code(变更类型编码)` 对业务变关系：
+   1. create_functional_module 对应 `create_functional_module(创建一个功能模块)` 表中的 `dbid`
+   2. create_program_module 对应 `create_program_module(创建一个程序模块)` 表中的 `dbid`

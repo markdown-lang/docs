@@ -1,6 +1,6 @@
 # `create_program_module` - 创建一个程序模块
 
-定义一个程序模块的基本信息。
+定义一个程序模块的基本信息。创建一个程序模块就是一个变更。
 
 ## 字段
 
@@ -13,7 +13,8 @@
 | menu_group_id     | 菜单分组标识       | bigint       |        | 否   |      |
 | user_menu_id      | 用户定义的菜单标识 | bigint       |        | 否   |      |
 | seq               | 序号               | int          |        | 否   |      |
-| path              | 路由路径           | varchar(256) |        | 是   |      |
+| path              | 路由地址           | varchar(256) |        | 是   |      |
+| client_src_path   | 前端源码路径       | varchar(256) |        | 否   |      |
 | icon              | 图标               | varchar(64)  |        | 是   |      |
 | action_permission | 操作权限字符       | varchar(64)  |        | 是   |      |
 | visible           | 是否可见           | boolean      | true   | 否   |      |
@@ -32,9 +33,7 @@
    1. `fk_create_program_module_project_id`，`project_id` 关联 `project.dbid`
    2. `fk_create_program_module_change_set_id`，`change_set_id` 关联 `change_set.dbid`
    3. `fk_create_program_module_menu_group_id`, `menu_group_id` 关联 `project_menu_group.dbid`
-3. 唯一：
-   1. `uk_create_program_module_change_set_id_menu_group_id_name`，关联字段 `change_set_id`、`menu_group_id` 和 `name`
-   2. `uk_create_program_module_change_set_id_user_menu_id`，关联字段 `change_set_id` 和 `user_menu_id`
+3. 唯一：`uk_create_program_module_change_set_id`，关联字段 `change_set_id`
 
 ## 索引
 
