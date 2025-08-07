@@ -19,7 +19,7 @@
 | action_permission | 操作权限字符       | varchar(64)  |        | 是   |      |
 | visible           | 是否可见           | boolean      | true   | 否   |      |
 | client_type       | 客户端类型         | char(2)      |        | 否   |      |
-| template_key      | 界面模板码         | varchar(32)  |        | 是   |      |
+| template_key      | 界面模板码         | varchar(64)  |        | 是   |      |
 | panels            | 面板列表           | json         |        | 是   |      |
 | create_by         | 创建人             | bigint       |        | 否   |      |
 | create_time       | 创建时间           | datetime     |        | 否   |      |

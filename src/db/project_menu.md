@@ -19,7 +19,7 @@
 | action_permission | 操作权限字符       | varchar(64)  |        | 是   |      |
 | client_src_path   | 前端源码路径       | varchar(256) |        | 否   |      |
 | visible           | 是否可见           | boolean      | true   | 否   |      |
-| template_key      | 界面模板码         | varchar(32)  |        | 否   |      |
+| template_key      | 界面模板码         | varchar(64)  |        | 否   |      |
 | create_by         | 创建人             | bigint(20)   |        | 否   |      |
 | create_time       | 创建时间           | datetime     |        | 否   |      |
 | update_by         | 更新人             | bigint(20)   |        | 是   |      |
