@@ -27,7 +27,7 @@
    3. `fk_project_git_repo_template_repo_id`, `template_repo_id` 关联 `git_template_repo.dbid`
 3. 唯一：
    1. `uk_project_git_repo_project_id_repo_name`，关联字段 `project_id` 和 `repo_name`
-   2. `uk_project_git_repo_project_id_http_url`，关联字段 `project_id`、`http_url`
+   2. `uk_project_git_repo_project_id_http_url`，关联字段 `project_id` 和 `http_url`
 
 ## 索引
 

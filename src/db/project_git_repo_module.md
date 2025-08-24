@@ -2,6 +2,8 @@
 
 管理一个git仓库中存储的所有源码项目，我们将这个层级的源码项目称为模块(取自 maven 的名称)。
 
+FIXME: 之前是用此表存储路径配置信息的，是拼接组合式的，用起来不顺，索性用 `project_path_setting` 表存储。本表可考虑删除
+
 ## 字段
 
 | 字段名        | 注释         | 类型         | 默认值 | 主键 | 可空 |
@@ -10,7 +12,6 @@
 | git_repo_id   | git仓库标识  | bigint       |        |      | 否   |
 | content_type  | 内容分类     | char(2)      |        |      | 否   |
 | module_name   | 模块名称     | varchar(32)  |        |      | 是   |
-| base_package  | 包的根路径   | varchar(128) |        |      | 是   |
 | main_language | 主要编程语言 | char(3)      |        |      | 是   |
 | create_by     | 创建人       | bigint       |        |      | 否   |
 | create_time   | 创建时间     | datetime     |        |      | 否   |
@@ -33,8 +34,7 @@
 
 1. `content_type(内容分类)` 的值详见 [子模块内容分类](../data/dict/2007_module_content_type)
 2. `module_name(模块名称)` 是子模块（或子项目）的名称，即目录名
-3. 如果 `repo_type(仓库类型)` 是`单模块`，则也要在此表中登记，此时模块名称为 `null`
+3. 如果 `repo_type(仓库类型)` 是`单模块`，则也要在此表中登记，此时 `module_name(模块名称)` 跟 `project_git_repo.repo_name(仓库名称)` 相同
 4. 约定一个项目只能有一种主要编程语言
-5. `base_package(包的根路径)` 是一个相对路径，相对于 `module_name(模块名称)`
 6. `main_language(主要编程语言)` 的值详见 [编程语言](../data/dict/2008_program_language)
 7. 在模板项目的配置文件中取对应的路径
