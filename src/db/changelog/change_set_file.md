@@ -10,7 +10,7 @@
 | change_set_id      | 变更集标识               | bigint       |        | 否   |      |
 | biz_id             | 业务标识                 | bigint       |        | 否   |      |
 | change_type        | 变更类型                 | varchar(16)  |        | 否   |      |
-| file_path          | 源码文件相对路径         | varchar(128) |        | 否   |      |
+| file_path          | 源码文件相对路径         | varchar(512) |        | 否   |      |
 | added_line_count   | 新增代码行数             | int          | 0      | 是   |      |
 | removed_line_count | 删除代码行数             | int          | 0      | 是   |      |
 | seq                | 序号                     | int          |        | 否   |      |
