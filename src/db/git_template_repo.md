@@ -10,19 +10,20 @@
 
 ## 字段
 
-| 字段名        | 注释     | 类型         | 默认值 | 主键 | 可空 |
-| ------------- | -------- | ------------ | ------ | ---- | ---- |
-| dbid          | 主键     | bigint       |        | 是   | 否   |
-| repo_category | 仓库分类 | char(2)      |        |      | 否   |
-| http_url      | http url | varchar(128) |        |      | 否   |
-| is_private    | 是否私有 | boolean      | false  |      | 否   |
-| description   | 描述     | varchar(128) |        |      | 是   |
-| software_id   | 软件标识 | bigint       |        |      | 否   |
-| repo_name     | 仓库名称 | varchar(32)  |        |      | 否   |
-| create_by     | 创建人   | bigint       |        |      | 否   |
-| create_time   | 创建时间 | datetime     |        |      | 否   |
-| update_by     | 更新人   | bigint       |        |      | 是   |
-| update_time   | 更新时间 | datetime     |        |      | 是   |
+| 字段名           | 注释         | 类型         | 默认值 | 可空 | 单位 |
+| ---------------- | ------------ | ------------ | ------ | ---- | ---- |
+| dbid             | 主键         | bigint       |        | 否   |      |
+| repo_category    | 仓库分类     | char(2)      |        | 否   |      |
+| http_url         | http url     | varchar(128) |        | 否   |      |
+| repo_module_type | 仓库模块类型 | char(2)      |        | 否   |      |
+| is_private       | 是否私有     | boolean      | false  | 否   |      |
+| description      | 描述         | varchar(128) |        | 是   |      |
+| software_id      | 软件标识     | bigint       |        | 否   |      |
+| repo_name        | 仓库名称     | varchar(32)  |        | 否   |      |
+| create_by        | 创建人       | bigint       |        | 否   |      |
+| create_time      | 创建时间     | datetime     |        | 否   |      |
+| update_by        | 更新人       | bigint       |        | 是   |      |
+| update_time      | 更新时间     | datetime     |        | 是   |      |
 
 ## 约束
 
@@ -42,3 +43,4 @@
 4. 克隆仓库时使用的用户和密码，是从 `account(账号信息)` 表中获取登录用户的账号信息（最好不要存在服务器端）
 5. `software_id(软件标识)` 是指代码托管在哪个平台上，如 `GitLab`、`GitHub` 或 `Gitee` 等
 6. `repo_name(仓库名称)` 是基于此模板创建 git 仓库时，推荐的仓库名称
+7. `repo_module_type(仓库模块类型)` 的值详见 [git仓库模块类型](../data/dict/2006_git_repo_module_type)
