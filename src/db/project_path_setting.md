@@ -31,13 +31,13 @@
 1. 注意，要明确哪些属性只能设置一次，哪些属性可以设置多次
 2. 属性值为路径时，其中包含 git 仓库或子模块片段
 3. 支持的属性有：
-   1. `entity.base.class.path` - 实体类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
-   2. `mathUtil.class.path` - 数学工具类的路径，包含 `multiple100`、`multiple1000`、`divide100`、`divide1000` 静态方法，使用 `/` 分割，且不以 `/` 开头，1个
-   3. `controller.base.class.path` - 控制器类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
-   4. `java.base.package` - 存放业务代码的基础包路径，包含模块项目名，使用 `/` 分割，且不以 `/` 开头，n个
-   5. `mybatis.xml.root.dir` - 存放 mybatis XML 配置文件的根目录，使用 `/` 分割，且不以 `/` 开头，n个
-   6. `docs.db.root.dir` - 存放表结构设计文档的根目录，使用 `/` 分割，且不以 `/` 开头，n个
-   7. `ui.views.root.dir` - 存放页面的根目录，使用 `/` 分割，且不以 `/` 开头，1个
-   8. `ui.types.root.dir` - 存放类型定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
-   9. `ui.apis.root.dir` - 存放 api 定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
+   1. `entityBaseClassPath` - 实体类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
+   2. `mathUtilClassPath` - 数学工具类的路径，包含 `multiple100`、`multiple1000`、`divide100`、`divide1000` 静态方法，使用 `/` 分割，且不以 `/` 开头，1个
+   3. `controllerBaseClassPath` - 控制器类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
+   4. `javaBasePackage` - 存放业务代码的基础包路径，包含模块项目名，使用 `/` 分割，且不以 `/` 开头，n个
+   5. `mybatisXmlRootDir` - 存放 mybatis XML 配置文件的根目录，使用 `/` 分割，且不以 `/` 开头，n个
+   6. `docsDbRootDir` - 存放表结构设计文档的根目录，使用 `/` 分割，且不以 `/` 开头，n个
+   7. `uiViewsRootDir` - 存放页面的根目录，使用 `/` 分割，且不以 `/` 开头，1个
+   8. `uiTypesRootDir` - 存放类型定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
+   9. `uiApisRootDir` - 存放 api 定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
 4. `seq(序号)` 是每个属性，从 `1` 开始编码

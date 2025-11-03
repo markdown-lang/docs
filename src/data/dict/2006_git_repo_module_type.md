@@ -16,5 +16,7 @@
 
 ## 说明
 
-1. 对 java 的 maven 项目而言，多模块就是一个 maven 项目中有多个子模块(module)
-2. 对 javascript/typescript 项目而言，多模块就是一个仓库中有多个包(package)
+在新建项目时，根据以下信息推导
+
+1. 对 java 的 maven 项目而言，多模块就是一个 maven 项目中有多个子模块(module)，有多个 `pom.xml` 文件
+2. 对 javascript/typescript 项目而言，多模块就是一个仓库中有多个包(package)，有多个 `package.json` 文件

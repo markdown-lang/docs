@@ -1,15 +1,91 @@
 # 模板项目
 
+为模板项目配置相关信息，包括以下三个方面：
+
+1. 组成项目的子模块列表
+2. 关键文件路径与文件夹路径
+3. 实例化项目时执行的操作
+
+为自动化创建项目和配置项目提供信息。整体结构为：
+
+```json
+{
+   "modules": [],
+   "paths": {},
+   "actions": [],
+}
+```
+
+modules 和 paths 中包含会被替换名字时，直接使用变量表达式。
+
+## Modules
+
+一个项目中的子模块信息，主要包括：
+
+1. `name` - 模块名，即目录名，如果目录名是动态替换的，则使用使用被替换后的变量，如 `"name": "{{project_name}}-server"`
+1. `type` - 模块分类，跟 [子模块内容分类](../data/dict/2007_project_module_content_type.md) 保持一致，值为
+   1. `program-manage`      项目管理 
+   2. `design-docs`         设计文档
+   3. `backend-business`    后端业务代码
+   4. `backend-system`      后端系统管理代码
+   5. `frontend-business`   前端业务代码
+   6. `browser-business`    浏览器端业务代码
+   7. `mobile-business`     移动端业务代码
+   8. `pc-business`         桌面端业务代码
+   9. `help-docs`           帮助文档
+2. `language` - 一个项目的主编程语言，跟 [编程语言](../data/dict/2008_program_language.md) 保持一致，值为
+   1. `Java`      
+   2. `TypeScript`
+   3. `Markdown`  
+
+```json
+{
+   "name": "",
+   "type": "",
+   "language": ""
+}
+```
+
+## Paths
+
+一个文件的路径或者文件夹的路径，相对于当前项目(不是子模块)根目录的路径。支持的路径信息与 [project_path_setting](../db/project_path_setting.md) 表中“支持的属性”保持一致
+
+1. `entityBaseClassPath` - 实体类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
+2. `mathUtilClassPath` - 数学工具类的路径，包含 `multiple100`、`multiple1000`、`divide100`、`divide1000` 静态方法，使用 `/` 分割，且不以 `/` 开头，1个
+3. `controllerBaseClassPath` - 控制器类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
+4. `javaBasePackage` - 存放业务代码的基础包路径，包含模块项目名，使用 `/` 分割，且不以 `/` 开头，n个
+5. `mybatisXmlRootDir` - 存放 mybatis XML 配置文件的根目录，使用 `/` 分割，且不以 `/` 开头，n个
+6. `docsDbRootDir` - 存放表结构设计文档的根目录，使用 `/` 分割，且不以 `/` 开头，n个
+7. `uiViewsRootDir` - 存放页面的根目录，使用 `/` 分割，且不以 `/` 开头，1个
+8. `uiTypesRootDir` - 存放类型定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
+9. `uiApisRootDir` - 存放 api 定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
+
+```json
+{
+   "entityBaseClassPath": "a/b/BaseEntity.java",
+   "mathUtilClassPath": "a/b/MathUtil.java",
+   "controllerBaseClassPath": "a/b/BaseController.java",
+   "javaBasePackage": ["a/b/c", "a/d/e"],
+   "mybatisXmlRootDir": ["a/b/c", "a/d/e"],
+   "docsDbRootDir": ["a/db", "b/db"],
+   "uiViewsRootDir": "a/b/views",
+   "uiTypesRootDir": "a/b/types",
+   "uiApisRootDir": "a/b/api"
+}
+```
+
+## Actions
+
 以下设计取执行某项操作这个隐喻。
 
-会分两个阶段执行操作，第一个阶段是在 push 之前，第二个阶段是在 push 之后
+会分两个阶段执行操作，第一个阶段是在 push 之前，第二个阶段是在 push 之后。
 
-## 模板替换语法
+### 模板替换语法
 
 一个项目的模板配置信息存在 `template.json` 文件中，使用 `json` 格式定义配置文件。
 不论是修改文件中的内容，还是修改文件名，都可以归类为一种操作，即修改文本。
 
-### 替换文件中的内容
+#### 替换文件中的内容
 
 字段说明
 
@@ -42,7 +118,7 @@
 }]
 ```
 
-### 修改文件夹或文件名称
+#### 修改文件夹或文件名称
 
 要放在替换文件内容的后面。
 
@@ -77,9 +153,12 @@
 }]
 ```
 
-注意，如果先修改文件夹名称，再修改文件夹里的文件，需要将修改顺序调整为先修改文件的内容，再重命名文件夹。
+注意，遇到以下情况时，操作的先后顺序至关重要：
 
-### 执行 sql 脚本
+1. 如果先修改文件夹名称，再修改文件夹里的文件，需要将修改顺序调整为先修改文件的内容，再重命名文件夹；
+2. 如果一段路径要修改两次，则修改靠后路径的操作要往前放。
+
+#### 执行 sql 脚本
 
 ```json
 [{
@@ -90,7 +169,7 @@
 }]
 ```
 
-### 安装 npm 依赖
+#### 安装 npm 依赖
 
 ```json
 [{
@@ -100,7 +179,7 @@
 }]
 ```
 
-## 数据对象
+### 数据对象
 
 `to_value` 中引入的数据
 
