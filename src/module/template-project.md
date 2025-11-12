@@ -1,5 +1,7 @@
 # 模板项目
 
+为一个模板项目添加一个配置文件，文件名为 `template.json`。
+
 为模板项目配置相关信息，包括以下三个方面：
 
 1. 组成项目的子模块列表
@@ -24,7 +26,7 @@ modules 和 paths 中包含会被替换名字时，直接使用变量表达式�
 
 1. `name` - 模块名，即目录名，如果目录名是动态替换的，则使用使用被替换后的变量，如 `"name": "{{project_name}}-server"`
 1. `type` - 模块分类，跟 [子模块内容分类](../data/dict/2007_project_module_content_type.md) 保持一致，值为
-   1. `program-manage`      项目管理 
+   1. `program-manage`      项目管理
    2. `design-docs`         设计文档
    3. `backend-business`    后端业务代码
    4. `backend-system`      后端系统管理代码
@@ -53,9 +55,9 @@ modules 和 paths 中包含会被替换名字时，直接使用变量表达式�
 1. `entityBaseClassPath` - 实体类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
 2. `mathUtilClassPath` - 数学工具类的路径，包含 `multiple100`、`multiple1000`、`divide100`、`divide1000` 静态方法，使用 `/` 分割，且不以 `/` 开头，1个
 3. `controllerBaseClassPath` - 控制器类的基类路径，使用 `/` 分割，且不以 `/` 开头，1个
-4. `javaBasePackage` - 存放业务代码的基础包路径，包含模块项目名，使用 `/` 分割，且不以 `/` 开头，n个
-5. `mybatisXmlRootDir` - 存放 mybatis XML 配置文件的根目录，使用 `/` 分割，且不以 `/` 开头，n个
-6. `docsDbRootDir` - 存放表结构设计文档的根目录，使用 `/` 分割，且不以 `/` 开头，n个
+4. `javaBasePackageList` - 存放业务代码的基础包路径，包含模块项目名，使用 `/` 分割，且不以 `/` 开头，n个
+5. `mybatisXmlRootDirList` - 存放 mybatis XML 配置文件的根目录，使用 `/` 分割，且不以 `/` 开头，n个
+6. `docsDbRootDirList` - 存放表结构设计文档的根目录，使用 `/` 分割，且不以 `/` 开头，n个
 7. `uiViewsRootDir` - 存放页面的根目录，使用 `/` 分割，且不以 `/` 开头，1个
 8. `uiTypesRootDir` - 存放类型定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
 9. `uiApisRootDir` - 存放 api 定义的根目录，使用 `/` 分割，且不以 `/` 开头，1个
@@ -65,14 +67,16 @@ modules 和 paths 中包含会被替换名字时，直接使用变量表达式�
    "entityBaseClassPath": "a/b/BaseEntity.java",
    "mathUtilClassPath": "a/b/MathUtil.java",
    "controllerBaseClassPath": "a/b/BaseController.java",
-   "javaBasePackage": ["a/b/c", "a/d/e"],
-   "mybatisXmlRootDir": ["a/b/c", "a/d/e"],
-   "docsDbRootDir": ["a/db", "b/db"],
+   "javaBasePackageList": ["a/b/c", "a/d/e"],
+   "mybatisXmlRootDirList": ["a/b/c", "a/d/e"],
+   "docsDbRootDirList": ["a/db", "b/db"],
    "uiViewsRootDir": "a/b/views",
    "uiTypesRootDir": "a/b/types",
    "uiApisRootDir": "a/b/api"
 }
 ```
+
+注意，当有多个时，此处的变量名以 List 结尾。但属性名是不会以 List 结尾的，如 `javaBasePackageList` 与 `javaBasePackage`。
 
 ## Actions
 

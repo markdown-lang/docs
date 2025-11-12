@@ -20,6 +20,7 @@
 | 41   | 41   | 移动端业务代码   | 有效     | mobile-business   |
 | 51   | 51   | 桌面端业务代码   | 有效     | pc-business       |
 | 61   | 61   | 帮助文档         | 有效     | help-docs         |
+| 99   | 99   | 未定义           | 有效     | undefined         |
 
 ## 说明
 

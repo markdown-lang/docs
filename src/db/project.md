@@ -2,20 +2,22 @@
 
 ## 字段
 
-| 字段名           | 注释         | 类型         | 默认值 | 可空 | 单位 |
-| ---------------- | ------------ | ------------ | ------ | ---- | ---- |
-| dbid             | 主键         | bigint       |        | 否   |      |
-| name             | 名称         | varchar(64)  |        | 否   |      |
-| label            | 显示名       | varchar(64)  |        | 否   |      |
-| description      | 描述         | varchar(128) |        | 是   |      |
-| is_private       | 是否私有     | boolean      | true   | 否   |      |
-| last_active_time | 最近活动时间 | datetime     |        | 否   |      |
-| init_mode        | 初始化方式   | char(2)      | 01     | 否   |      |
-| status           | 状态         | char(2)      | 01     | 否   |      |
-| create_by        | 创建人       | bigint       |        | 否   |      |
-| create_time      | 创建时间     | datetime     |        | 否   |      |
-| update_by        | 更新人       | bigint       |        | 是   |      |
-| update_time      | 更新时间     | datetime     |        | 是   |      |
+| 字段名             | 注释         | 类型         | 默认值 | 可空 | 单位 |
+| ------------------ | ------------ | ------------ | ------ | ---- | ---- |
+| dbid               | 主键         | bigint       |        | 否   |      |
+| name               | 名称         | varchar(64)  |        | 否   |      |
+| label              | 显示名       | varchar(64)  |        | 否   |      |
+| description        | 描述         | varchar(128) |        | 是   |      |
+| is_private         | 是否私有     | boolean      | true   | 否   |      |
+| last_active_time   | 最近活动时间 | datetime     |        | 否   |      |
+| init_mode          | 初始化方式   | char(2)      | 01     | 否   |      |
+| status             | 状态         | char(2)      | 01     | 否   |      |
+| status_change_by   | 状态变更人   | bigint       |        | 否   |      |
+| status_change_time | 状态变更时间 | datetime     |        | 否   |      |
+| create_by          | 创建人       | bigint       |        | 否   |      |
+| create_time        | 创建时间     | datetime     |        | 否   |      |
+| update_by          | 更新人       | bigint       |        | 是   |      |
+| update_time        | 更新时间     | datetime     |        | 是   |      |
 
 ## 约束
 
@@ -41,3 +43,5 @@
 7. `init_mode(初始化方式)` 是指以什么方式创建的项目，值为：
    1. `01` - 新建
    2. `02` - 导入
+8. `status_change_by(状态变更人)`，新增记录时，与 `create_by(创建人)` 相同
+9. `status_change_time(状态变更时间)`，新增记录时，与 `create_time(创建时间)` 相同
