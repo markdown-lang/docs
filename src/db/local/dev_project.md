@@ -12,12 +12,13 @@
 | project_name     | 项目名称     | varchar(64)  |        | 否   |      |
 | project_label    | 项目显示名   | varchar(64)  |        | 否   |      |
 | root_dir         | 项目根目录   | varchar(128) |        | 否   |      |
+| is_installed     | 是否安装完成 | boolean      | false  | 否   |      |
 | latest_open_time | 最近打开时间 | datetime     |        | 否   |      |
 | create_by        | 创建人       | bigint       |        | 否   |      |
 | create_time      | 创建时间     | datetime     |        | 否   |      |
 | update_by        | 更新人       | bigint       |        | 是   |      |
 | update_time      | 更新时间     | datetime     |        | 是   |      |
-|                  |
+
 ## 约束
 
 1. 主键: `pk_dev_project`
@@ -35,3 +36,4 @@
 3. `project_id(项目标识)` 对应 `project(项目基本信息)` 表中的 `dbid`
 4. `root_dir(项目根目录)` 是本项目的在开发环境中的根目录，是绝对路径，最后一段是项目名
 5. `latest_open_time(最近打开时间)` 是用户最近打开项目的时间，常用于排序
+6. `is_installed(是否安装完成)` 表示是否在本地环境安装完成，支持新建、导入和克隆三种安装方式
